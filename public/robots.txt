@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://games.hackatoa.com/sitemap.xml
