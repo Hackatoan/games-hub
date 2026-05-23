@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hackatoa Games — Play Free Online Browser Games</title>
-  <meta name="description" content="Free online browser games by Hackatoa. Play Infinisweeper, 1v1 Minesweeper, Tic-Tac-Toe, and Battleship Online. No download, no sign-up required." />
-  <meta name="keywords" content="free browser games, online games, minesweeper, tic tac toe, battleship, infinisweeper, hackatoa games" />
+  <meta name="description" content="Free online browser games by Hackatoa. Play Infinisweeper, 1v1 Minesweeper, Tic-Tac-Toe, Battleship, and System 32 Roulette. No sign-up required." />
+  <meta name="keywords" content="free browser games, online games, minesweeper, tic tac toe, battleship, infinisweeper, system 32 roulette, minigame battler, hackatoa games" />
   <meta name="author" content="Hackatoa" />
   <link rel="canonical" href="https://games.hackatoa.com" />
 
@@ -58,6 +58,13 @@
         "url": "https://battleship.hackatoa.com",
         "applicationCategory": "Game",
         "description": "Classic naval Battleship — play vs AI or challenge a friend online."
+      },
+      {
+        "@type": "WebApplication",
+        "name": "System 32 Roulette",
+        "url": "https://sys32.hackatoa.com",
+        "applicationCategory": "Game",
+        "description": "Competitive 1v1 minigame battler — typing, clicking, memory. Loser faces system deletion."
       }
     ]
   }
@@ -376,7 +383,11 @@
       margin-top: 3rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+    .battler-section .section-label { align-self: flex-start; }
     .battler-card {
       display: flex;
       flex-direction: row;
@@ -386,34 +397,42 @@
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      max-width: 680px;
+      width: 100%;
+      max-width: 760px;
       transition: transform .2s, box-shadow .2s, border-color .2s;
       box-shadow: 0 4px 12px rgba(0,0,0,.4);
     }
     .battler-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(57,255,20,.08), 0 4px 12px rgba(0,0,0,.5);
+      box-shadow: 0 16px 40px rgba(57,255,20,.12), 0 4px 12px rgba(0,0,0,.5);
       border-color: #39ff14;
     }
     .battler-art {
-      width: 260px;
+      width: 280px;
       flex-shrink: 0;
       position: relative;
       overflow: hidden;
     }
     .battler-body {
-      padding: 1.5rem;
+      padding: 1.75rem;
       display: flex;
       flex-direction: column;
       gap: .6rem;
       flex: 1;
     }
-    .battler-card .card-title { color: #39ff14; }
-    .battler-card .card-cta { color: #39ff14; }
+    .battler-card .card-title { color: #39ff14; font-size: 1.4rem; }
+    .battler-card .card-cta { color: #3d6b3d; }
     .battler-card:hover .card-cta { color: #39ff14; }
+    .battler-danger {
+      font-size: .78rem;
+      color: #ff2442;
+      font-family: 'Courier New', monospace;
+      letter-spacing: .04em;
+      margin-top: -.2rem;
+    }
     @media (max-width: 600px) {
       .battler-card { flex-direction: column; }
-      .battler-art { width: 100%; height: 140px; }
+      .battler-art { width: 100%; height: 160px; }
     }
   </style>
 </head>
@@ -555,13 +574,15 @@
           <h2 class="card-title">System 32 Roulette</h2>
           <span class="badge badge-multi">1v1</span>
         </div>
+        <p class="battler-danger">⚠ desktop app: loser's system gets deleted. for real.</p>
         <p class="card-desc">
-          Competitive minigame battler. Beat your opponent across 3 rounds — typing races, click frenzies, memory dumps. Loser's system gets "deleted." (jk)
+          Competitive 1v1 minigame battler. Race through typing commands, clicking targets, and recalling memory patterns. Beat your opponent across 3 rounds or face the consequences.
         </p>
         <div class="card-tags">
           <span class="tag">Minigames</span>
           <span class="tag">1v1</span>
           <span class="tag">Real-time</span>
+          <span class="tag">Desktop App</span>
         </div>
         <div class="card-cta">
           Spin the roulette
@@ -582,3 +603,4 @@
 
 </body>
 </html>
+
