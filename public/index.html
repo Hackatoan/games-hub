@@ -370,6 +370,51 @@
       .card-art { height: 140px; }
       footer { flex-direction: column; gap: .5rem; text-align: center; }
     }
+
+    /* ── Minigame Battler section ── */
+    .battler-section {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .battler-card {
+      display: flex;
+      flex-direction: row;
+      background: #090c09;
+      border: 1px solid #1a3d1a;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      max-width: 680px;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    }
+    .battler-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(57,255,20,.08), 0 4px 12px rgba(0,0,0,.5);
+      border-color: #39ff14;
+    }
+    .battler-art {
+      width: 260px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .battler-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      flex: 1;
+    }
+    .battler-card .card-title { color: #39ff14; }
+    .battler-card .card-cta { color: #39ff14; }
+    .battler-card:hover .card-cta { color: #39ff14; }
+    @media (max-width: 600px) {
+      .battler-card { flex-direction: column; }
+      .battler-art { width: 100%; height: 140px; }
+    }
   </style>
 </head>
 <body>
@@ -384,7 +429,7 @@
 </header>
 
 <main>
-  <p class="section-label">All Games</p>
+  <p class="section-label">Web Games</p>
 
   <div class="games-grid">
 
@@ -497,6 +542,37 @@
     </a>
 
   </div>
+
+  <!-- ── Minigame Battler ── -->
+  <div class="battler-section">
+    <p class="section-label" style="margin-bottom:1rem">Minigame Battler</p>
+    <a class="battler-card" href="https://sys32.hackatoa.com" target="_blank" rel="noopener">
+      <div class="battler-art">
+        <img src="/card-sys32roulette.svg" alt="System 32 Roulette" class="card-img" />
+      </div>
+      <div class="battler-body">
+        <div class="card-header">
+          <h2 class="card-title">System 32 Roulette</h2>
+          <span class="badge badge-multi">1v1</span>
+        </div>
+        <p class="card-desc">
+          Competitive minigame battler. Beat your opponent across 3 rounds — typing races, click frenzies, memory dumps. Loser's system gets "deleted." (jk)
+        </p>
+        <div class="card-tags">
+          <span class="tag">Minigames</span>
+          <span class="tag">1v1</span>
+          <span class="tag">Real-time</span>
+        </div>
+        <div class="card-cta">
+          Spin the roulette
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+  </div>
+
 </main>
 
 <footer>
