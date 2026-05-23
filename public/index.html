@@ -184,10 +184,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 5rem;
       transition: filter .2s;
       position: relative;
       overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
     }
 
     .card-art::before {
@@ -360,7 +367,7 @@
     }
 
     @media (max-width: 480px) {
-      .card-art { height: 140px; font-size: 4rem; }
+      .card-art { height: 140px; }
       footer { flex-direction: column; gap: .5rem; text-align: center; }
     }
   </style>
@@ -384,7 +391,7 @@
     <!-- Infinisweeper -->
     <a class="game-card" href="https://infinisweeper.hackatoa.com" target="_blank" rel="noopener">
       <div class="card-art infisweeper">
-        <span class="card-icon">💣</span>
+        <img src="/card-infinisweeper.svg" alt="Infinisweeper" class="card-img" />
       </div>
       <div class="card-body">
         <div class="card-header">
@@ -411,7 +418,7 @@
     <!-- 1v1 Minesweeper -->
     <a class="game-card" href="https://1v1sw.hackatoa.com" target="_blank" rel="noopener">
       <div class="card-art oneminesweeper">
-        <span class="card-icon">⚔️</span>
+        <img src="/card-1v1sw.svg" alt="1v1 Minesweeper" class="card-img" />
       </div>
       <div class="card-body">
         <div class="card-header">
@@ -438,7 +445,7 @@
     <!-- Tic-Tac-Toe -->
     <a class="game-card" href="https://ttc.hackatoa.com" target="_blank" rel="noopener">
       <div class="card-art ttc">
-        <span class="card-icon">🎮</span>
+        <img src="/card-ttc.svg" alt="Tic-Tac-Toe Online" class="card-img" />
       </div>
       <div class="card-body">
         <div class="card-header">
@@ -465,7 +472,7 @@
     <!-- Battleship -->
     <a class="game-card" href="https://battleship.hackatoa.com" target="_blank" rel="noopener">
       <div class="card-art battleship">
-        <span class="card-icon">⚓</span>
+        <img src="/card-battleship.svg" alt="Battleship" class="card-img" />
       </div>
       <div class="card-body">
         <div class="card-header">
