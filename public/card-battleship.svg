@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 170" width="420" height="170">
+  <defs>
+    <radialGradient id="g1" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" style="stop-color:#0d3a5c;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#0a1628;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="420" height="170" fill="#0a1628"/>
+  <rect width="420" height="170" fill="url(#g1)"/>
+  <!-- Grid lines -->
+  <g opacity="0.1" stroke="#00d4ff" stroke-width="1">
+    <line x1="0" y1="0" x2="420" y2="170"/>
+    <line x1="70" y1="0" x2="70" y2="170"/><line x1="140" y1="0" x2="140" y2="170"/>
+    <line x1="210" y1="0" x2="210" y2="170"/><line x1="280" y1="0" x2="280" y2="170"/>
+    <line x1="350" y1="0" x2="350" y2="170"/>
+    <line x1="0" y1="42" x2="420" y2="42"/><line x1="0" y1="85" x2="420" y2="85"/>
+    <line x1="0" y1="127" x2="420" y2="127"/>
+  </g>
+  <!-- Hit markers -->
+  <text x="105" y="28" font-size="20" fill="#ff3030" text-anchor="middle" opacity="0.7">✕</text>
+  <text x="245" y="70" font-size="20" fill="#ff3030" text-anchor="middle" opacity="0.7">✕</text>
+  <text x="35" y="112" font-size="20" fill="#2a4a70" text-anchor="middle" opacity="0.8">·</text>
+  <text x="385" y="55" font-size="20" fill="#2a4a70" text-anchor="middle" opacity="0.8">·</text>
+  <!-- Ship silhouette -->
+  <g transform="translate(210,110)" opacity="0.18">
+    <rect x="-160" y="-12" width="320" height="24" rx="6" fill="#00d4ff"/>
+    <rect x="-90" y="-32" width="120" height="22" rx="3" fill="#00d4ff"/>
+    <rect x="-40" y="-50" width="50" height="22" rx="3" fill="#00d4ff"/>
+    <polygon points="-160,-12 -185,12 -160,12" fill="#00d4ff"/>
+    <polygon points="160,-12 185,12 160,12" fill="#00d4ff"/>
+  </g>
+  <!-- Anchor icon -->
+  <g transform="translate(210,72)" opacity="0.9">
+    <circle cx="0" cy="-28" r="13" fill="none" stroke="#00d4ff" stroke-width="4"/>
+    <line x1="0" y1="-15" x2="0" y2="28" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-22" y1="2" x2="22" y2="2" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-22,24 Q-22,38 0,41 Q22,38 22,24" fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <!-- Title -->
+  <text x="210" y="150" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="28" font-weight="900" letter-spacing="6" fill="#00d4ff" opacity="0.9">BATTLESHIP</text>
+</svg>
