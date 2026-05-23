@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hackatoa Games — Play Free Online Browser Games</title>
-  <meta name="description" content="Free online browser games by Hackatoa. Play Infinisweeper, 1v1 Minesweeper, and Tic-Tac-Toe Online. No download, no sign-up required." />
-  <meta name="keywords" content="free browser games, online games, minesweeper, tic tac toe, infinisweeper, hackatoa games" />
+  <meta name="description" content="Free online browser games by Hackatoa. Play Infinisweeper, 1v1 Minesweeper, Tic-Tac-Toe, and Battleship Online. No download, no sign-up required." />
+  <meta name="keywords" content="free browser games, online games, minesweeper, tic tac toe, battleship, infinisweeper, hackatoa games" />
   <meta name="author" content="Hackatoa" />
   <link rel="canonical" href="https://games.hackatoa.com" />
 
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://games.hackatoa.com" />
   <meta property="og:title" content="Hackatoa Games — Free Online Browser Games" />
-  <meta property="og:description" content="Play free browser games — competitive minesweeper, infinite minesweeper, and tic-tac-toe. No account needed." />
+  <meta property="og:description" content="Play free browser games — competitive minesweeper, infinite minesweeper, tic-tac-toe, and battleship. No account needed." />
   <meta property="og:image" content="https://games.hackatoa.com/og.png" />
 
   <!-- Twitter -->
@@ -51,6 +51,13 @@
         "url": "https://ttc.hackatoa.com",
         "applicationCategory": "Game",
         "description": "Real-time online Tic-Tac-Toe against a friend."
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Battleship",
+        "url": "https://battleship.hackatoa.com",
+        "applicationCategory": "Game",
+        "description": "Classic naval Battleship — play vs AI or challenge a friend online."
       }
     ]
   }
@@ -212,6 +219,14 @@
                   radial-gradient(ellipse at 75% 25%, #92400e 0%, transparent 40%);
     }
 
+    .card-art.battleship {
+      background: #0a1628;
+    }
+    .card-art.battleship::before {
+      background: radial-gradient(ellipse at 30% 60%, #0d3a5c 0%, transparent 55%),
+                  radial-gradient(ellipse at 70% 30%, #0a4a6e 0%, transparent 45%);
+    }
+
     .card-icon {
       position: relative;
       z-index: 1;
@@ -253,6 +268,7 @@
 
     .badge-solo  { background: rgba(244,114,182,.12); color: var(--pink); border: 1px solid rgba(244,114,182,.3); }
     .badge-multi { background: rgba(244,63,94,.12); color: var(--rose); border: 1px solid rgba(244,63,94,.3); }
+    .badge-both  { background: rgba(100,160,255,.12); color: #60a5fa; border: 1px solid rgba(100,160,255,.3); }
 
     .card-desc {
       font-size: .9rem;
@@ -434,6 +450,33 @@
           <span class="tag">Classic</span>
           <span class="tag">2-player</span>
           <span class="tag">Real-time</span>
+        </div>
+        <div class="card-cta">
+          Play now
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Battleship -->
+    <a class="game-card" href="https://battleship.hackatoa.com" target="_blank" rel="noopener">
+      <div class="card-art battleship">
+        <span class="card-icon">⚓</span>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <h2 class="card-title">Battleship</h2>
+          <span class="badge badge-both">Solo + Multi</span>
+        </div>
+        <p class="card-desc">
+          The classic naval strategy game. Place your fleet, hunt the enemy. Play vs an AI opponent or challenge a friend in real-time multiplayer.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Strategy</span>
+          <span class="tag">VS AI</span>
+          <span class="tag">Multiplayer</span>
         </div>
         <div class="card-cta">
           Play now
