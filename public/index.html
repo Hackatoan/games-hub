@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hackatoa Games — Play Free Online Browser Games</title>
-  <meta name="description" content="Free online browser games by Hackatoa. Play Infinisweeper, 1v1 Minesweeper, Tic-Tac-Toe, Battleship, and System 32 Roulette. No sign-up required." />
-  <meta name="keywords" content="free browser games, online games, minesweeper, tic tac toe, battleship, infinisweeper, system 32 roulette, minigame battler, hackatoa games" />
+  <title>Hackatoa Games — Free Online Games by Hackatoa</title>
+  <meta name="description" content="Free online games by Hackatoa. Play Infinisweeper, 1v1 Minesweeper, Tic-Tac-Toe, Battleship, System 32 Roulette, and Cards Against Hackatoa. No download, no sign-up required." />
+  <meta name="keywords" content="free online games, hackatoa games, minesweeper, tic tac toe, battleship, cards against humanity, system 32 roulette, party games" />
   <meta name="author" content="Hackatoa" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://games.hackatoa.com" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://games.hackatoa.com" />
-  <meta property="og:title" content="Hackatoa Games — Free Online Browser Games" />
-  <meta property="og:description" content="Play free browser games — competitive minesweeper, infinite minesweeper, tic-tac-toe, and battleship. No account needed." />
+  <meta property="og:title" content="Hackatoa Games — Free Online Games" />
+  <meta property="og:description" content="Free online games by Hackatoa — minesweeper, card party games, battleship, competitive minigames, and more. No account needed." />
   <meta property="og:image" content="https://games.hackatoa.com/og.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@jhackatoa" />
   <meta name="twitter:title" content="Hackatoa Games" />
-  <meta name="twitter:description" content="Free browser games by Hackatoa." />
+  <meta name="twitter:description" content="Free games by Hackatoa — no sign-up required." />
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -61,10 +64,17 @@
       },
       {
         "@type": "WebApplication",
+        "name": "Cards Against Hackatoa",
+        "url": "https://cah.hackatoa.com",
+        "applicationCategory": "Game",
+        "description": "A Cards Against Humanity-style party game. Everyone votes each round — no czar, no mercy."
+      },
+      {
+        "@type": "WebApplication",
         "name": "System 32 Roulette",
         "url": "https://sys32.hackatoa.com",
         "applicationCategory": "Game",
-        "description": "Competitive 1v1 minigame battler — typing, clicking, memory. Loser faces system deletion."
+        "description": "Competitive 1v1 minigame battler — typing, clicking, and memory rounds. Loser faces system deletion."
       }
     ]
   }
@@ -141,10 +151,8 @@
     /* ── Main ── */
     main {
       flex: 1;
-      max-width: 72rem;
-      margin: 0 auto;
       width: 100%;
-      padding: 3rem 1.5rem 6rem;
+      padding: 3rem 2rem 6rem;
     }
 
     .section-label {
@@ -165,7 +173,8 @@
     }
 
     .game-card {
-      flex: 0 1 360px;
+      flex: 1 1 300px;
+      max-width: 420px;
       display: flex;
       flex-direction: column;
       background: var(--bg2);
@@ -241,6 +250,14 @@
     .card-art.battleship::before {
       background: radial-gradient(ellipse at 30% 60%, #0d3a5c 0%, transparent 55%),
                   radial-gradient(ellipse at 70% 30%, #0a4a6e 0%, transparent 45%);
+    }
+
+    .card-art.cah {
+      background: #0d0d0d;
+    }
+    .card-art.cah::before {
+      background: radial-gradient(ellipse at 25% 55%, #1a1a1a 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 40%, #0f1f0f 0%, transparent 50%);
     }
 
     .card-icon {
@@ -374,6 +391,7 @@
     }
 
     @media (max-width: 480px) {
+      main { padding: 2rem 1rem 5rem; }
       .card-art { height: 140px; }
       footer { flex-direction: column; gap: .5rem; text-align: center; }
     }
@@ -383,11 +401,7 @@
       margin-top: 3rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--border-soft);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-    .battler-section .section-label { align-self: flex-start; }
     .battler-card {
       display: flex;
       flex-direction: row;
@@ -397,50 +411,42 @@
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      width: 100%;
-      max-width: 760px;
+      max-width: 680px;
       transition: transform .2s, box-shadow .2s, border-color .2s;
       box-shadow: 0 4px 12px rgba(0,0,0,.4);
     }
     .battler-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(57,255,20,.12), 0 4px 12px rgba(0,0,0,.5);
+      box-shadow: 0 16px 40px rgba(57,255,20,.08), 0 4px 12px rgba(0,0,0,.5);
       border-color: #39ff14;
     }
     .battler-art {
-      width: 280px;
+      width: 260px;
       flex-shrink: 0;
       position: relative;
       overflow: hidden;
     }
     .battler-body {
-      padding: 1.75rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: .6rem;
       flex: 1;
     }
-    .battler-card .card-title { color: #39ff14; font-size: 1.4rem; }
-    .battler-card .card-cta { color: #3d6b3d; }
+    .battler-card .card-title { color: #39ff14; }
+    .battler-card .card-cta { color: #39ff14; }
     .battler-card:hover .card-cta { color: #39ff14; }
-    .battler-danger {
-      font-size: .78rem;
-      color: #ff2442;
-      font-family: 'Courier New', monospace;
-      letter-spacing: .04em;
-      margin-top: -.2rem;
-    }
     @media (max-width: 600px) {
       .battler-card { flex-direction: column; }
-      .battler-art { width: 100%; height: 160px; }
+      .battler-art { width: 100%; height: 140px; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Hackatoa Games</div>
-  <p>Free browser games — no download, no sign-up</p>
+  <h1 class="logo">Hackatoa Games</h1>
+  <p>Free games by Hackatoa — no sign-up required</p>
   <a class="header-home" href="https://hackatoa.com" target="_blank" rel="noopener">
     <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8L8 1l7 7"/><path d="M8 1v14M1 8h14"/></svg>
     hackatoa.com
@@ -560,6 +566,33 @@
       </div>
     </a>
 
+    <!-- Cards Against Hackatoa -->
+    <a class="game-card" href="https://cah.hackatoa.com" target="_blank" rel="noopener">
+      <div class="card-art cah">
+        <img src="/card-cah.svg" alt="Cards Against Hackatoa" class="card-img" />
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <h2 class="card-title">Cards Against Hackatoa</h2>
+          <span class="badge badge-multi">Party</span>
+        </div>
+        <p class="card-desc">
+          A Cards Against Humanity-style party game for terrible people. Everyone votes each round — no czar, no mercy. Custom cards, wild cards, and community packs.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Party</span>
+          <span class="tag">Voting</span>
+          <span class="tag">Custom Cards</span>
+        </div>
+        <div class="card-cta">
+          Play now
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+
   </div>
 
   <!-- ── Minigame Battler ── -->
@@ -574,15 +607,13 @@
           <h2 class="card-title">System 32 Roulette</h2>
           <span class="badge badge-multi">1v1</span>
         </div>
-        <p class="battler-danger">⚠ desktop app: loser's system gets deleted. for real.</p>
         <p class="card-desc">
-          Competitive 1v1 minigame battler. Race through typing commands, clicking targets, and recalling memory patterns. Beat your opponent across 3 rounds or face the consequences.
+          Competitive minigame battler. Beat your opponent across 3 rounds — typing races, click frenzies, memory dumps. Loser's system gets "deleted." (jk)
         </p>
         <div class="card-tags">
           <span class="tag">Minigames</span>
           <span class="tag">1v1</span>
           <span class="tag">Real-time</span>
-          <span class="tag">Desktop App</span>
         </div>
         <div class="card-cta">
           Spin the roulette
@@ -603,4 +634,3 @@
 
 </body>
 </html>
-
