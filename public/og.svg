@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#43302b"/>
+      <stop offset="100%" stop-color="#2a1e1b"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#f9a8d4"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Subtle glow -->
+  <ellipse cx="600" cy="250" rx="620" ry="360" fill="#f472b6" fill-opacity="0.06"/>
+
+  <!-- Title -->
+  <text x="600" y="250" text-anchor="middle" font-family="'Segoe UI', Roboto, system-ui, sans-serif" font-size="112" font-weight="900" letter-spacing="-3" fill="url(#title)" filter="url(#glow)">HACKATOA</text>
+  <text x="600" y="360" text-anchor="middle" font-family="'Segoe UI', Roboto, system-ui, sans-serif" font-size="112" font-weight="900" letter-spacing="6" fill="#fbcfe8">GAMES</text>
+
+  <!-- Tagline -->
+  <text x="600" y="430" text-anchor="middle" font-family="'Segoe UI', Roboto, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="3" fill="#d2bab0">FREE BROWSER GAMES · NO SIGN-UP · NO DOWNLOAD</text>
+
+  <!-- Game glyph row -->
+  <g font-size="52" text-anchor="middle" font-family="'Segoe UI Emoji','Noto Color Emoji',sans-serif">
+    <text x="470" y="520">💣</text>
+    <text x="555" y="520">⚓</text>
+    <text x="640" y="520">⭕</text>
+    <text x="725" y="520">🎴</text>
+  </g>
+
+  <!-- Footer wordmark -->
+  <text x="600" y="595" text-anchor="middle" font-family="'Segoe UI', Roboto, system-ui, sans-serif" font-size="24" font-weight="600" letter-spacing="4" fill="#a18072">games.hackatoa.com</text>
+</svg>
