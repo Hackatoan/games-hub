@@ -626,6 +626,23 @@
     </a>
   </div>
 
+  <section class="leaderboard-section">
+    <div class="lb-head">
+      <h2>🏆 Leaderboard</h2>
+      <select id="lb-scope" aria-label="Leaderboard scope">
+        <option value="">All games (overall)</option>
+      </select>
+    </div>
+    <div class="lb-table-wrap">
+      <table class="leaderboard">
+        <thead>
+          <tr><th>#</th><th>Player</th><th>W</th><th>L</th><th>D</th><th id="lb-col-extra">Games</th></tr>
+        </thead>
+        <tbody id="lb-body"><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -633,6 +650,77 @@
   <a class="footer-coffee" href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener">☕ Buy me a coffee</a>
 </footer>
 
+<style>
+  .leaderboard-section {
+    max-width: 640px;
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: rgba(40, 27, 22, 0.55);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+  }
+  .lb-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .lb-head h2 { color: var(--pink); font-size: 1.15rem; margin: 0; }
+  #lb-scope {
+    background: var(--bg); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 6px 10px; font: inherit; font-size: .85rem;
+  }
+  .lb-table-wrap { overflow-x: auto; }
+  table.leaderboard { width: 100%; border-collapse: collapse; font-size: .9rem; color: var(--text); }
+  table.leaderboard th { text-align: left; color: var(--muted2); font-weight: 600; padding: 5px 8px; white-space: nowrap; }
+  table.leaderboard td { padding: 5px 8px; white-space: nowrap; }
+  table.leaderboard th:nth-child(n+3), table.leaderboard td:nth-child(n+3) { text-align: right; }
+  table.leaderboard tbody tr:nth-child(odd) { background: rgba(132,99,88,0.10); }
+  table.leaderboard tr.lb-me { color: var(--pink); font-weight: 700; }
+</style>
+<script>
+  (function () {
+    const NAMES = {
+      'ttc': 'Tic-Tac-Toe', 'battleship': 'Battleship', 'cah': 'Cards Against Hackatoa',
+      'sys32roulette': 'Sys32 Roulette', '1v1ms': '1v1 Minesweeper', '1v1sw': '1v1 Minesweeper',
+    };
+    const label = (g) => NAMES[g] || g;
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const me = (localStorage.getItem('playerName') || '').trim();
+    const scope = document.getElementById('lb-scope');
+    const body = document.getElementById('lb-body');
+    const extraHead = document.getElementById('lb-col-extra');
+
+    async function populateGames() {
+      try {
+        const { games } = await (await fetch('/api/games')).json();
+        for (const g of (games || [])) {
+          const opt = document.createElement('option');
+          opt.value = g; opt.textContent = label(g);
+          scope.appendChild(opt);
+        }
+      } catch {}
+    }
+
+    async function load() {
+      const g = scope.value;
+      extraHead.textContent = g ? 'Played' : 'Games';
+      body.innerHTML = '<tr><td colspan="6">Loading…</td></tr>';
+      try {
+        const url = g ? `/api/leaderboard?game=${encodeURIComponent(g)}` : '/api/leaderboard';
+        const data = await (await fetch(url)).json();
+        const players = (data && data.players) || [];
+        if (!players.length) { body.innerHTML = '<tr><td colspan="6">No games played yet — be the first!</td></tr>'; return; }
+        body.innerHTML = players.map((p, i) => {
+          const extra = g ? p.games_played : (p.games ?? p.games_played);
+          const mine = me && p.player === me;
+          return `<tr class="${mine ? 'lb-me' : ''}"><td>${i + 1}</td><td>${esc(p.player)}</td><td>${p.wins}</td><td>${p.losses}</td><td>${p.draws}</td><td>${extra}</td></tr>`;
+        }).join('');
+      } catch {
+        body.innerHTML = '<tr><td colspan="6">Leaderboard unavailable.</td></tr>';
+      }
+    }
+
+    scope.addEventListener('change', load);
+    populateGames().then(load);
+  })();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

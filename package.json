@@ -1,0 +1,15 @@
+{
+  "name": "games-hub",
+  "version": "1.0.0",
+  "description": "Hackatoa Games hub — landing page + cross-game leaderboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "type": "commonjs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
+  }
+}
