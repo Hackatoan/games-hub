@@ -1,4 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://games.hackatoa.com/</loc><lastmod>2026-08-13</lastmod><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://games.hackatoa.com/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
+  <url>
+    <loc>https://games.hackatoa.com/es/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
+  <url>
+    <loc>https://games.hackatoa.com/pt-br/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
+  <url>
+    <loc>https://games.hackatoa.com/fr/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
+  <url>
+    <loc>https://games.hackatoa.com/de/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
+  <url>
+    <loc>https://games.hackatoa.com/vi/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
+  <url>
+    <loc>https://games.hackatoa.com/th/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://games.hackatoa.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://games.hackatoa.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://games.hackatoa.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://games.hackatoa.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://games.hackatoa.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://games.hackatoa.com/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://games.hackatoa.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://games.hackatoa.com/"/>
+  </url>
 </urlset>

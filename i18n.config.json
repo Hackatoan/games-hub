@@ -1,0 +1,10 @@
+{
+  "origin": "https://games.hackatoa.com",
+  "locales": ["en", "es", "pt-br", "fr", "de", "vi", "th"],
+  "rootFile": "index.html",
+  "pages": [
+    { "file": "index.html", "urlPath": "/" }
+  ],
+  "internalLinks": {},
+  "keepTerms": ["Hackatoa", "Infinisweeper", "Battleship", "Tic-Tac-Toe", "Cards Against Hackatoa", "System 32 Roulette", "1v1 Minesweeper", "Clip Forge", "Sys32 Roulette"]
+}

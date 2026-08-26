@@ -1,10 +1,11 @@
 {
   "name": "games-hub",
   "version": "1.0.0",
-  "description": "Hackatoa Games hub — landing page + cross-game leaderboard",
+  "description": "Hackatoa Games hub \u2014 landing page + cross-game leaderboard",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "i18n:auto": "node scripts/i18n-auto.mjs"
   },
   "type": "commonjs",
   "license": "ISC",
