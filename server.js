@@ -1,9 +1,16 @@
 const express = require('express');
+const compression = require('compression');
 const path = require('path');
 const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+// Gzip/deflate text responses (HTML pages across 7 locales, SVG cards, JSON
+// API payloads). None of this was compressed before, so every response was
+// sent at full uncompressed size. Must come before the routes/static below
+// so it can see and compress their output.
+app.use(compression());
 
 // Cross-game aggregate leaderboard, or a single game with ?game=<id>.
 app.get('/api/leaderboard', async (req, res) => {
