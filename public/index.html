@@ -652,11 +652,17 @@
       <h2>🏆 Leaderboard</h2>
       <select id="lb-scope" aria-label="Leaderboard scope">
         <option value="">All games (overall)</option>
+        <!-- Infinisweeper tracks point scores (Firestore), not win/loss/draw
+             like the other games' shared Postgres table -- read directly
+             from its own Firestore project instead of /api/leaderboard,
+             with its own column shape. Always listed (not populated from
+             /api/games, which only knows the shared-table games). -->
+        <option value="infinisweeper">Infinisweeper</option>
       </select>
     </div>
     <div class="lb-table-wrap" aria-live="polite" aria-atomic="true">
       <table class="leaderboard">
-        <thead>
+        <thead id="lb-head-row">
           <tr><th>#</th><th>Player</th><th>W</th><th>L</th><th>D</th><th id="lb-col-extra">Games</th></tr>
         </thead>
         <tbody id="lb-body"><tr><td colspan="6">Loading…</td></tr></tbody>
@@ -696,6 +702,8 @@
   table.leaderboard tbody tr:nth-child(odd) { background: rgba(132,99,88,0.10); }
   table.leaderboard tr.lb-me { color: var(--pink); font-weight: 700; }
 </style>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
 <script>
   (function () {
     const NAMES = {
@@ -707,7 +715,20 @@
     const me = (localStorage.getItem('playerName') || '').trim();
     const scope = document.getElementById('lb-scope');
     const body = document.getElementById('lb-body');
-    const extraHead = document.getElementById('lb-col-extra');
+    const headRow = document.getElementById('lb-head-row');
+    const WLD_HEADER = '<tr><th>#</th><th>Player</th><th>W</th><th>L</th><th>D</th><th id="lb-col-extra">Games</th></tr>';
+    const SCORE_HEADER = '<tr><th>#</th><th>Player</th><th>Score</th><th>Date</th></tr>';
+
+    // Infinisweeper's own Firestore project (public web config, not a
+    // secret) -- read-only here, same "leaderboard" collection its own
+    // site reads from. Named app instance so it doesn't collide with any
+    // other Firebase project a future feature on this page might add.
+    const infiniApp = firebase.initializeApp({
+      apiKey: 'AIzaSyBeX2zXq8E5-0FqX5lvukxaH4BwPx_u0QM',
+      projectId: 'infinisweeper-19103',
+      authDomain: 'infinisweeper-19103.firebaseapp.com',
+    }, 'infinisweeper');
+    const infiniDb = infiniApp.firestore();
 
     async function populateGames() {
       try {
@@ -715,14 +736,36 @@
         for (const g of (games || [])) {
           const opt = document.createElement('option');
           opt.value = g; opt.textContent = label(g);
-          scope.appendChild(opt);
+          // Infinisweeper option is static in the HTML and always last;
+          // insert fetched games before it so it stays at the bottom.
+          scope.insertBefore(opt, scope.querySelector('option[value="infinisweeper"]'));
         }
       } catch {}
     }
 
+    async function loadInfinisweeper() {
+      headRow.innerHTML = SCORE_HEADER;
+      body.innerHTML = '<tr><td colspan="4">Loading…</td></tr>';
+      try {
+        const snap = await infiniDb.collection('leaderboard').orderBy('score', 'desc').limit(25).get();
+        if (snap.empty) { body.innerHTML = '<tr><td colspan="4">No scores yet — be the first!</td></tr>'; return; }
+        body.innerHTML = snap.docs.map((doc, i) => {
+          const d = doc.data();
+          const mine = me && d.name === me;
+          const date = d.date && d.date.toDate ? d.date.toDate().toLocaleDateString() : '';
+          return `<tr class="${mine ? 'lb-me' : ''}"><td>${i + 1}</td><td>${esc(d.name)}</td><td>${d.score}</td><td>${esc(date)}</td></tr>`;
+        }).join('');
+      } catch {
+        body.innerHTML = '<tr><td colspan="4">Leaderboard unavailable.</td></tr>';
+      }
+    }
+
     async function load() {
       const g = scope.value;
-      extraHead.textContent = g ? 'Played' : 'Games';
+      if (g === 'infinisweeper') return loadInfinisweeper();
+      headRow.innerHTML = WLD_HEADER;
+      const extraHeadEl = document.getElementById('lb-col-extra');
+      extraHeadEl.textContent = g ? 'Played' : 'Games';
       body.innerHTML = '<tr><td colspan="6">Loading…</td></tr>';
       try {
         const url = g ? `/api/leaderboard?game=${encodeURIComponent(g)}` : '/api/leaderboard';
