@@ -18,8 +18,18 @@ if (connectionString) {
 async function getAggregate(limit = 25) {
     if (!pool) return [];
     try {
+        // `player` is the raw identity key -- a typed nickname for anonymous
+        // rows, or a stable Firebase uid for a signed-in account (see
+        // project_games_leaderboards / the account-linking rollout). Group
+        // by the raw key (that's what's actually consistent for the same
+        // account across every game's independently-written rows), but
+        // display `display_name` when present -- a bare uid string would
+        // otherwise show up as someone's "name" on the leaderboard. A
+        // signed-in account's display_name can differ slightly per game
+        // (whatever they happened to type that session); MAX() just picks
+        // one deterministically, it doesn't need to be perfect.
         const { rows } = await pool.query(
-            `SELECT player,
+            `SELECT COALESCE(MAX(display_name), player) AS player,
                     SUM(wins)::int         AS wins,
                     SUM(losses)::int       AS losses,
                     SUM(draws)::int        AS draws,
@@ -43,7 +53,7 @@ async function getByGame(game, limit = 25) {
     if (!pool) return [];
     try {
         const { rows } = await pool.query(
-            `SELECT player, wins, losses, draws, games_played
+            `SELECT COALESCE(display_name, player) AS player, wins, losses, draws, games_played
                FROM leaderboards
               WHERE game = $1
               ORDER BY wins DESC, games_played ASC, updated_at ASC
