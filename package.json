@@ -1,7 +1,7 @@
 {
   "name": "games-hub",
   "version": "1.0.0",
-  "description": "Hackatoa Games hub \u2014 landing page + cross-game leaderboard",
+  "description": "Hackatoa Games hub — landing page + cross-game leaderboard",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,6 +10,7 @@
   "type": "commonjs",
   "license": "ISC",
   "dependencies": {
+    "@hackatoan/leaderboard": "https://github.com/Hackatoan/game-leaderboard/archive/refs/tags/v1.0.0.tar.gz",
     "compression": "^1.8.2",
     "express": "^5.2.1",
     "pg": "^8.23.0"

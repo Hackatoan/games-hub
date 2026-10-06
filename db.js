@@ -3,6 +3,10 @@
 // endpoints return empty arrays and the static hub still works.
 
 const { Pool } = require('pg');
+// Shared profanity filter (github.com/Hackatoan/game-leaderboard): the per-game servers mask names on
+// write, but this hub reads the shared table directly, so it also masks on read (covers older rows).
+const { safeName } = require('@hackatoan/leaderboard');
+const maskRows = (rows) => rows.map((r) => ({ ...r, player: safeName(r.player) }));
 
 const connectionString = process.env.DATABASE_URL;
 let pool = null;
@@ -41,7 +45,7 @@ async function getAggregate(limit = 25) {
               LIMIT $1`,
             [limit]
         );
-        return rows;
+        return maskRows(rows);
     } catch (err) {
         console.error('[db] getAggregate failed:', err.message);
         return [];
@@ -60,7 +64,7 @@ async function getByGame(game, limit = 25) {
               LIMIT $2`,
             [game, limit]
         );
-        return rows;
+        return maskRows(rows);
     } catch (err) {
         console.error('[db] getByGame failed:', err.message);
         return [];
