@@ -148,6 +148,7 @@
       transition: color .15s;
     }
     .header-home:hover { color: var(--pink); }
+    .header-home:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
 
     /* ── Main ── */
     main {
@@ -192,6 +193,12 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0,0,0,.5);
       border-color: var(--border);
+    }
+
+    .game-card:focus-visible {
+      outline: 2px solid var(--pink);
+      outline-offset: 2px;
+      border-radius: 1.25rem;
     }
 
     .game-card:hover .card-art { filter: brightness(1.12); }
@@ -373,6 +380,7 @@
       font-weight: 600;
     }
     footer a:hover { text-decoration: underline; }
+    footer a:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
 
     .footer-coffee {
       background: var(--pink-light);
@@ -389,6 +397,10 @@
       color: var(--bg3);
       transform: translateY(-1px);
       text-decoration: none !important;
+    }
+    .footer-coffee:focus-visible {
+      outline: 2px solid var(--bg);
+      outline-offset: 2px;
     }
 
     @media (max-width: 480px) {
@@ -420,6 +432,12 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(57,255,20,.08), 0 4px 12px rgba(0,0,0,.5);
       border-color: #39ff14;
+    }
+
+    .battler-card:focus-visible {
+      outline: 2px solid #39ff14;
+      outline-offset: 2px;
+      border-radius: 1.25rem;
     }
     .battler-art {
       width: 260px;
@@ -693,6 +711,14 @@
     background: var(--bg); color: var(--text);
     border: 1px solid var(--border); border-radius: 8px;
     padding: 6px 10px; font: inherit; font-size: .85rem;
+  }
+  #lb-scope:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 2px;
+  }
+  #lang-btn:focus-visible {
+    outline: 2px solid #8a8;
+    outline-offset: 2px;
   }
   .lb-table-wrap { overflow-x: auto; }
   table.leaderboard { width: 100%; border-collapse: collapse; font-size: .9rem; color: var(--text); }
