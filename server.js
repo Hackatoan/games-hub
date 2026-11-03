@@ -6,6 +6,18 @@ const db = require('./db');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Security headers: prevent clickjacking, MIME-type sniffing, and enable
+// strict transport security for HTTPS enforcement. These are applied before
+// any routes so they cover all responses.
+app.use((req, res, next) => {
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+    next();
+});
+
 // Gzip/deflate text responses (HTML pages across 7 locales, SVG cards, JSON
 // API payloads). None of this was compressed before, so every response was
 // sent at full uncompressed size. Must come before the routes/static below
