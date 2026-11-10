@@ -1,6 +1,6 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY package.json package-lock.json* ./
+COPY package.json package-lock.json* .npmrc ./
 RUN npm install --omit=dev
 COPY . .
 RUN chown -R node:node /app
