@@ -310,6 +310,12 @@
     .badge-solo  { background: rgba(244,114,182,.12); color: var(--pink); border: 1px solid rgba(244,114,182,.3); }
     .badge-multi { background: rgba(244,63,94,.12); color: var(--rose); border: 1px solid rgba(244,63,94,.3); }
     .badge-both  { background: rgba(100,160,255,.12); color: #60a5fa; border: 1px solid rgba(100,160,255,.3); }
+    .last-played-host { position: relative; }
+    .badge-last {
+      position: absolute; top: .6rem; left: .6rem; z-index: 1;
+      background: var(--bg3); color: var(--pink-light); border: 1px solid var(--pink);
+      box-shadow: 0 2px 8px rgba(0,0,0,.45);
+    }
 
     .card-desc {
       font-size: .9rem;
@@ -494,6 +500,7 @@
 </header>
 
 <main>
+  <span id="last-played-badge" class="badge badge-last" hidden>Chơi gần đây</span>
   <p class="section-label">Trò chơi Web</p>
 
   <div class="games-grid">
@@ -838,6 +845,40 @@
         load();
       });
     }
+  })();
+</script>
+<script>
+  // "Last played" badge: remember which game card was opened last (this
+  // browser only) and pin a small badge on it. Nothing shows until a card
+  // has been clicked once.
+  (function () {
+    var KEY = 'hubLastPlayed';
+    var badge = document.getElementById('last-played-badge');
+    var cards = document.querySelectorAll('a.game-card, a.battler-card');
+    if (!badge || !cards.length) return;
+    function mark(href) {
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].getAttribute('href') !== href) continue;
+        var art = cards[i].querySelector('.card-art, .battler-art');
+        if (!art) return;
+        art.classList.add('last-played-host');
+        art.appendChild(badge);
+        badge.hidden = false;
+        return;
+      }
+    }
+    function remember(e) {
+      var href = e.currentTarget.getAttribute('href');
+      try { localStorage.setItem(KEY, href); } catch (err) {}
+      mark(href);
+    }
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', remember);
+      cards[i].addEventListener('auxclick', function (e) { if (e.button === 1) remember(e); });
+    }
+    var last = null;
+    try { last = localStorage.getItem(KEY); } catch (err) {}
+    if (last) mark(last);
   })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->

@@ -13,6 +13,7 @@ A single front door linking every hosted browser game, with a cross-game aggrega
 - Directory of all Hackatoa games
 - Cross-game aggregate leaderboard
 - Leaderboard remembers your last-picked game and supports shareable `?lb=<game>` links
+- "Last played" badge on the game card you opened most recently (stored in this browser only)
 - 6-language localization
 
 ## Tech Stack
