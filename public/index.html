@@ -808,8 +808,36 @@
       }
     }
 
-    scope.addEventListener('change', load);
-    Promise.all([populateGames(), load()]); // independent fetches — run in parallel, not as a waterfall
+    // Remember the chosen scope (per browser) and mirror it into ?lb=<game>
+    // so a specific game's board can be linked/shared. A ?lb= in the URL
+    // wins over the remembered value; with neither, the overall board loads
+    // exactly as before.
+    const LB_KEY = 'hubLeaderboardScope';
+    let wanted = '';
+    try { wanted = new URLSearchParams(location.search).get('lb') || localStorage.getItem(LB_KEY) || ''; } catch {}
+    const hasOpt = (v) => Array.from(scope.options).some((o) => o.value === v);
+    function remember() {
+      const g = scope.value;
+      try { if (g) localStorage.setItem(LB_KEY, g); else localStorage.removeItem(LB_KEY); } catch {}
+      try {
+        const u = new URL(location.href);
+        if (g) u.searchParams.set('lb', g); else u.searchParams.delete('lb');
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      } catch {}
+    }
+
+    scope.addEventListener('change', () => { remember(); load(); });
+    if (!wanted || hasOpt(wanted)) {
+      // Overall or a static option (Infinisweeper): nothing to wait for.
+      if (wanted) scope.value = wanted;
+      Promise.all([populateGames(), load()]); // independent fetches — run in parallel, not as a waterfall
+    } else {
+      // A shared-table game: its <option> only exists after /api/games.
+      populateGames().then(() => {
+        if (hasOpt(wanted)) scope.value = wanted;
+        load();
+      });
+    }
   })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
