@@ -317,6 +317,19 @@
       box-shadow: 0 2px 8px rgba(0,0,0,.45);
     }
 
+    .games-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .games-head .section-label { margin-bottom: 0; }
+    .surprise-btn {
+      background: transparent; color: var(--pink-light);
+      border: 1px solid var(--pink); border-radius: 999px;
+      padding: .3rem .9rem; font: inherit; font-size: .8rem; font-weight: 700;
+      cursor: pointer; transition: background .15s, color .15s;
+    }
+    .surprise-btn:hover { background: var(--pink); color: var(--bg3); }
+    .surprise-btn:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
     .card-desc {
       font-size: .9rem;
       color: var(--muted);
@@ -501,7 +514,10 @@
 
 <main>
   <span id="last-played-badge" class="badge badge-last" hidden>เล่นล่าสุด</span>
-  <p class="section-label">เว็บเกม</p>
+  <div class="games-head">
+    <p class="section-label">เว็บเกม</p>
+    <button id="surprise-btn" class="surprise-btn" type="button"><span aria-hidden="true">🎲</span> สุ่มเกมให้ฉัน</button>
+  </div>
 
   <div class="games-grid">
 
@@ -879,6 +895,23 @@
     var last = null;
     try { last = localStorage.getItem(KEY); } catch (err) {}
     if (last) mark(last);
+  })();
+</script>
+<script>
+  // "Surprise me": open a random game card, skipping the last-played one
+  // when there's a choice. Clicking the real card (inside this user gesture)
+  // keeps target=_blank un-blocked and updates the "Last played" badge.
+  (function () {
+    var btn = document.getElementById('surprise-btn');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('a.game-card, a.battler-card'));
+    if (!btn || !cards.length) return;
+    btn.addEventListener('click', function () {
+      var last = null;
+      try { last = localStorage.getItem('hubLastPlayed'); } catch (err) {}
+      var pool = cards.filter(function (c) { return c.getAttribute('href') !== last; });
+      if (!pool.length) pool = cards;
+      pool[Math.floor(Math.random() * pool.length)].click();
+    });
   })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->

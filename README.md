@@ -14,6 +14,7 @@ A single front door linking every hosted browser game, with a cross-game aggrega
 - Cross-game aggregate leaderboard
 - Leaderboard remembers your last-picked game and supports shareable `?lb=<game>` links
 - "Last played" badge on the game card you opened most recently (stored in this browser only)
+- "🎲 Surprise me" button opens a random game (skips the one you played last)
 - 6-language localization
 
 ## Tech Stack
