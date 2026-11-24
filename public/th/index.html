@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hackatoa Games — ศูนย์รวมเกมเบราว์เซอร์ฟรี</title>
-  <meta name="description" content="รวมเกมเบราว์เซอร์ฟรีทั้งหมดของ Hackatoa ไว้ในที่เดียว เล่น 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette และอื่นๆ อีกมากมาย ไม่ต้องดาวน์โหลด" />
+  <meta name="description" content="รวมเกมเบราว์เซอร์ฟรีทั้งหมดของ Hackatoa ไว้ในที่เดียว เล่น 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette, Drone Racer และอีกมากมาย ไม่ต้องดาวน์โหลด" />
   <meta name="author" content="Preston Harris" />
-  <meta name="keywords" content="Hackatoa games, browser games, free online games, 1v1 minesweeper, battleship, tic tac toe, sys32 roulette, Preston Harris" />
+  <meta name="keywords" content="Hackatoa games, browser games, free online games, 1v1 minesweeper, battleship, tic tac toe, sys32 roulette, drone racing game, Preston Harris" />
   <meta property="og:title" content="Hackatoa Games — ศูนย์รวมเกมเบราว์เซอร์ฟรี" />
-  <meta property="og:description" content="รวมเกมเบราว์เซอร์ฟรีทั้งหมดของ Hackatoa ไว้ในที่เดียว เล่น 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette และอื่นๆ อีกมากมาย ไม่ต้องดาวน์โหลด" />
+  <meta property="og:description" content="รวมเกมเบราว์เซอร์ฟรีทั้งหมดของ Hackatoa ไว้ในที่เดียว เล่น 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette, Drone Racer และอีกมากมาย ไม่ต้องดาวน์โหลด" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://games.hackatoa.com/th/" />
   <meta property="og:image" content="https://games.hackatoa.com/og.png" />
@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="Hackatoa" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hackatoa Games — ศูนย์รวมเกมเบราว์เซอร์ฟรี" />
-  <meta name="twitter:description" content="รวมเกมเบราว์เซอร์ฟรีทั้งหมดของ Hackatoa ไว้ในที่เดียว เล่น 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette และอื่นๆ อีกมากมาย ไม่ต้องดาวน์โหลด" />
+  <meta name="twitter:description" content="รวมเกมเบราว์เซอร์ฟรีทั้งหมดของ Hackatoa ไว้ในที่เดียว เล่น 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette, Drone Racer และอีกมากมาย ไม่ต้องดาวน์โหลด" />
   <meta name="twitter:image" content="https://games.hackatoa.com/og.png" />
   <meta name="twitter:site" content="@jhackatoa" />
   <link rel="canonical" href="https://games.hackatoa.com/th/" />  <meta name="robots" content="index, follow" />  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -76,6 +76,13 @@
         "url": "https://sys32.hackatoa.com",
         "applicationCategory": "Game",
         "description": "Competitive 1v1 minigame battler — 15 games in the pool, 5 random rounds per match. Typing, reactions, math, memory, binary decoding, and more. Loser faces system deletion."
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Drone Racer",
+        "url": "https://drone.hackatoa.com",
+        "applicationCategory": "Game",
+        "description": "3D FPV drone racing in the browser — replay-verified time trials, online races, PvP arenas, hourly tournaments and a community map editor."
       }
     ]
   }
@@ -266,6 +273,14 @@
     .card-art.cah::before {
       background: radial-gradient(ellipse at 25% 55%, #1a1a1a 0%, transparent 55%),
                   radial-gradient(ellipse at 75% 40%, #0f1f0f 0%, transparent 50%);
+    }
+
+    .card-art.drone {
+      background: #120a06;
+    }
+    .card-art.drone::before {
+      background: radial-gradient(ellipse at 45% 55%, #9a3412 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 35%, #be185d 0%, transparent 45%);
     }
 
     .card-icon {
@@ -656,6 +671,33 @@
       </div>
     </a>
 
+    <!-- Drone Racer -->
+    <a class="game-card" href="https://drone.hackatoa.com" target="_blank" rel="noopener">
+      <div class="card-art drone">
+        <img src="/card-drone.svg" alt="เกมแข่งโดรน 3D FPV Drone Racer" class="card-img" />
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <h2 class="card-title">Drone Racer</h2>
+          <span class="badge badge-both">โซโล่ + มัลติเพลเยอร์</span>
+        </div>
+        <p class="card-desc">
+          แข่งโดรน 3D FPV ในเบราว์เซอร์ของคุณ การจับเวลาที่มีการตรวจสอบการเล่นซ้ำ, การแข่งออนไลน์, สนามประลอง PvP, ทัวร์นาเมนต์รายชั่วโมง และตัวแก้ไขแผนที่โดยคอมมิวนิตี้
+        </p>
+        <div class="card-tags">
+          <span class="tag">3D</span>
+          <span class="tag">เกมแข่งรถ</span>
+          <span class="tag">กระดานผู้นำ</span>
+        </div>
+        <div class="card-cta">
+          เล่นเลย
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+
   </div>
 
   <!-- ── Minigame Battler ── -->
@@ -758,6 +800,7 @@
     const NAMES = {
       'ttc': 'Tic-Tac-Toe', 'battleship': 'Battleship', 'cah': 'Cards Against Hackatoa',
       'sys32roulette': 'Sys32 Roulette', '1v1ms': '1v1 Minesweeper', '1v1sw': '1v1 Minesweeper',
+      'drone': 'Drone Racer',
     };
     const label = (g) => NAMES[g] || g;
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

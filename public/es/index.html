@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hackatoa Games — Centro de Juegos de Navegador Gratis</title>
-  <meta name="description" content="Todos los juegos de navegador gratuitos de Hackatoa en un solo lugar. Juega a 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette y más. Sin descargas necesarias." />
+  <meta name="description" content="Todos los juegos de navegador gratuitos de Hackatoa en un solo lugar. Juega a 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette, Drone Racer y más. No requiere descargas." />
   <meta name="author" content="Preston Harris" />
-  <meta name="keywords" content="juegos de hackatoa, juegos de navegador, juegos en línea gratis, 1v1 minesweeper, battleship, tic tac toe, sys32 roulette, Preston Harris" />
+  <meta name="keywords" content="juegos de Hackatoa, juegos de navegador, juegos en línea gratuitos, 1v1 minesweeper, battleship, tic tac toe, sys32 roulette, juego de carreras de drones, Preston Harris" />
   <meta property="og:title" content="Hackatoa Games — Centro de Juegos de Navegador Gratis" />
-  <meta property="og:description" content="Todos los juegos de navegador gratuitos de Hackatoa en un solo lugar. Juega a 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette y más. Sin descargas necesarias." />
+  <meta property="og:description" content="Todos los juegos de navegador gratuitos de Hackatoa en un solo lugar. Juega a 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette, Drone Racer y más. No requiere descargas." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://games.hackatoa.com/es/" />
   <meta property="og:image" content="https://games.hackatoa.com/og.png" />
@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="Hackatoa" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hackatoa Games — Centro de Juegos de Navegador Gratis" />
-  <meta name="twitter:description" content="Todos los juegos de navegador gratuitos de Hackatoa en un solo lugar. Juega a 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette y más. Sin descargas necesarias." />
+  <meta name="twitter:description" content="Todos los juegos de navegador gratuitos de Hackatoa en un solo lugar. Juega a 1v1 Minesweeper, Battleship, Tic-Tac-Toe, Sys32 Roulette, Drone Racer y más. No requiere descargas." />
   <meta name="twitter:image" content="https://games.hackatoa.com/og.png" />
   <meta name="twitter:site" content="@jhackatoa" />
   <link rel="canonical" href="https://games.hackatoa.com/es/" />  <meta name="robots" content="index, follow" />  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -76,6 +76,13 @@
         "url": "https://sys32.hackatoa.com",
         "applicationCategory": "Game",
         "description": "Competitive 1v1 minigame battler — 15 games in the pool, 5 random rounds per match. Typing, reactions, math, memory, binary decoding, and more. Loser faces system deletion."
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Drone Racer",
+        "url": "https://drone.hackatoa.com",
+        "applicationCategory": "Game",
+        "description": "3D FPV drone racing in the browser — replay-verified time trials, online races, PvP arenas, hourly tournaments and a community map editor."
       }
     ]
   }
@@ -266,6 +273,14 @@
     .card-art.cah::before {
       background: radial-gradient(ellipse at 25% 55%, #1a1a1a 0%, transparent 55%),
                   radial-gradient(ellipse at 75% 40%, #0f1f0f 0%, transparent 50%);
+    }
+
+    .card-art.drone {
+      background: #120a06;
+    }
+    .card-art.drone::before {
+      background: radial-gradient(ellipse at 45% 55%, #9a3412 0%, transparent 55%),
+                  radial-gradient(ellipse at 75% 35%, #be185d 0%, transparent 45%);
     }
 
     .card-icon {
@@ -656,6 +671,33 @@
       </div>
     </a>
 
+    <!-- Drone Racer -->
+    <a class="game-card" href="https://drone.hackatoa.com" target="_blank" rel="noopener">
+      <div class="card-art drone">
+        <img src="/card-drone.svg" alt="Juego de carreras de drones FPV 3D Drone Racer" class="card-img" />
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <h2 class="card-title">Drone Racer</h2>
+          <span class="badge badge-both">Solo + Multi</span>
+        </div>
+        <p class="card-desc">
+          Carreras de drones FPV 3D en tu navegador. Contrarreloj con repeticiones verificadas, carreras en línea, arenas JcJ, torneos por hora y un editor de mapas de la comunidad.
+        </p>
+        <div class="card-tags">
+          <span class="tag">3D</span>
+          <span class="tag">Carreras</span>
+          <span class="tag">Tabla de clasificación</span>
+        </div>
+        <div class="card-cta">
+          Jugar ahora
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+
   </div>
 
   <!-- ── Minigame Battler ── -->
@@ -758,6 +800,7 @@
     const NAMES = {
       'ttc': 'Tic-Tac-Toe', 'battleship': 'Battleship', 'cah': 'Cards Against Hackatoa',
       'sys32roulette': 'Sys32 Roulette', '1v1ms': '1v1 Minesweeper', '1v1sw': '1v1 Minesweeper',
+      'drone': 'Drone Racer',
     };
     const label = (g) => NAMES[g] || g;
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
